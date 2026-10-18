@@ -294,7 +294,7 @@ Previous
 - [ ] Add **SHAP** for model explainability
 - [ ] Deploy on **Streamlit Cloud**
 
-Cureent
+Current
 - [x] Handle class imbalance using **class weighting**
 - [ ] **Hyperparameter tuning** (GridSearchCV / RandomizedSearchCV)
 - [x] Optimize the decision threshold
