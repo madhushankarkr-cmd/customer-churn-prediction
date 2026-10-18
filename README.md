@@ -74,12 +74,6 @@ The features cover customer demographics, account information (tenure, contract,
 | **Model Persistence** | Joblib |
 
 ---
-##  Live Demo
-
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-red?logo=streamlit)](https://customer-churn-prediction-fcwb7heyjeyuwziwhxcnir.streamlit.app/)
-
-**Try it live:**  
--> [https://customer-churn-prediction-fcwb7heyjeyuwziwhxcnir.streamlit.app/](https://customer-churn-prediction-fcwb7heyjeyuwziwhxcnir.streamlit.app/)
 
 ##  Frontend Preview
 
@@ -192,6 +186,31 @@ Metrics for the churn class are reported on the held-out 20% test set.
 
 ---
 
+## Model Upgrade (Phase 1)
+
+After initial evaluation, the project was improved to better handle **class imbalance** (churn ≈ 27%).
+
+### Problem
+Baseline Logistic Regression achieved solid accuracy (0.80) and ROC-AUC (0.836), but **churn recall was only 0.57** — meaning 43% of customers at risk were missed.
+
+### Solution
+- Applied **class weighting** (`class_weight="balanced"`) to give the minority class higher importance during training
+- Analyzed decision thresholds from 0.30 to 0.60
+- Selected **threshold 0.50** for production deployment
+
+### Results
+
+| Metric | Baseline LR | Balanced LR (0.50) | Change |
+|--------|-------------|--------------------|--------|
+| Churn Recall | 0.57 | **0.80** | +0.23 ↑ |
+| Churn Precision | 0.65 | 0.49 | -0.16 ↓ |
+| ROC-AUC | 0.836 | 0.835 | ~0 |
+| Accuracy | 0.80 | 0.73 | -0.07 ↓ |
+
+**Trade-off:** We improved recall significantly at the cost of precision and accuracy. For churn prediction, missing a customer at risk is costlier than an extra retention offer, so this trade-off is intentional.
+
+---
+
 ##  Streamlit App
 
 The app lets a user enter customer details (contract, tenure, internet service, charges, add-on services, etc.) and returns:
@@ -203,7 +222,9 @@ The app lets a user enter customer details (contract, tenure, internet service, 
 ![Streamlit App](images/app_screenshot.png)
 -->
 
- **Live demo:** *Coming soon (planned deployment on Streamlit Cloud)*
+ [![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-red?logo=streamlit)](https://customer-churn-prediction-fcwb7heyjeyuwziwhxcnir.streamlit.app/)
+
+**Try it live:** [https://customer-churn-prediction-fcwb7heyjeyuwziwhxcnir.streamlit.app/](https://customer-churn-prediction-fcwb7heyjeyuwziwhxcnir.streamlit.app/)
 
 ---
 
@@ -266,12 +287,19 @@ To reproduce the analysis and training, open `notebooks/Customer_Churn_Predictio
 
 ##  Future Improvements
 
+Previous
 - [ ] Handle class imbalance using **SMOTE**
 - [ ] **Hyperparameter tuning** (GridSearchCV / RandomizedSearchCV)
 - [ ] Optimize the decision threshold to improve churn recall
 - [ ] Add **SHAP** for model explainability
 - [ ] Deploy on **Streamlit Cloud**
 
+Cureent
+- [x] Handle class imbalance using **class weighting**
+- [ ] **Hyperparameter tuning** (GridSearchCV / RandomizedSearchCV)
+- [x] Optimize the decision threshold
+- [ ] Add **SHAP** for model explainability
+- [x] Deploy on **Streamlit Cloud**
 ---
 
 ##  Author
