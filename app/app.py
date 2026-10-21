@@ -160,11 +160,98 @@ st.markdown(
         font-weight: 750;
     }
 
+    /* Form & Section Headings */
     div[data-testid="stForm"] {
-        background: white;
+        background: #ffffff !important;
         border: 1px solid var(--line);
         border-radius: 14px;
         padding: 1.3rem;
+        color: #000000 !important;
+    }
+
+    div[data-testid="stForm"] h4 {
+        color: #000000 !important;
+        font-weight: 800 !important;
+        margin-top: 0.2rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    /* Labels for All Inputs in Form & Sample Selector */
+    div[data-testid="stForm"] label,
+    div[data-testid="stForm"] label p,
+    div[data-testid="stForm"] label span,
+    div[data-testid="stForm"] label div,
+    div[data-testid="stSelectbox"] label,
+    div[data-testid="stSelectbox"] label p {
+        color: #000000 !important;
+        font-weight: 600 !important;
+        font-size: 0.92rem !important;
+    }
+
+    /* Selectbox Boxes & Selected Option Text */
+    div[data-baseweb="select"] > div {
+        background-color: #ffffff !important;
+        border: 1.5px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+    }
+
+    div[data-baseweb="select"] * {
+        color: #000000 !important;
+        font-weight: 600 !important;
+    }
+
+    div[data-baseweb="select"] svg {
+        fill: #000000 !important;
+        color: #000000 !important;
+    }
+
+    /* Dropdown Popover / Option List When Opened */
+    div[data-baseweb="popover"],
+    ul[data-baseweb="menu"],
+    div[data-baseweb="menu"] {
+        background-color: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+    }
+
+    ul[data-baseweb="menu"] li,
+    ul[data-baseweb="menu"] li * {
+        color: #000000 !important;
+        font-weight: 600 !important;
+    }
+
+    ul[data-baseweb="menu"] li:hover,
+    ul[data-baseweb="menu"] li[aria-selected="true"] {
+        background-color: #f1f5f9 !important;
+    }
+
+    /* Number Inputs */
+    div[data-testid="stNumberInput"] input {
+        color: #000000 !important;
+        background-color: #ffffff !important;
+        border: 1.5px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+    }
+
+    div[data-testid="stNumberInput"] button {
+        background-color: #f8fafc !important;
+        border-color: #cbd5e1 !important;
+    }
+
+    div[data-testid="stNumberInput"] button * {
+        color: #000000 !important;
+    }
+
+    /* Slider Text */
+    div[data-testid="stSlider"] * {
+        color: #000000 !important;
+    }
+
+    /* Form Descriptions & Captions */
+    div[data-testid="stForm"] .stCaption,
+    div[data-testid="stForm"] p {
+        color: #475467 !important;
     }
 
     div[data-testid="stFormSubmitButton"] button {
